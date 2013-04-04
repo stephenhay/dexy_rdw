@@ -1,0 +1,17 @@
+MANIFEST.in
+setup.py
+dexy_rdw/__init__.py
+dexy_rdw/__init__.pyc
+dexy_rdw.egg-info/PKG-INFO
+dexy_rdw.egg-info/SOURCES.txt
+dexy_rdw.egg-info/dependency_links.txt
+dexy_rdw.egg-info/top_level.txt
+dexy_rdw/mockup-template/.DS_Store
+dexy_rdw/mockup-template/_base.html
+dexy_rdw/mockup-template/_template.html
+dexy_rdw/mockup-template/dexy.conf
+dexy_rdw/mockup-template/dexy.yaml
+dexy_rdw/mockup-template/index.markdown
+dexy_rdw/mockup-template/macros/_footer.html
+dexy_rdw/mockup-template/macros/_head.html
+dexy_rdw/mockup-template/macros/nav.jinja
