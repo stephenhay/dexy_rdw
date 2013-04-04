@@ -4,4 +4,4 @@ class Mockup(Template):
     """
     Mockup template for Responsive Design Workflow.
     """
-    ALIASES = ['mockup']
+    aliases = ['mockup']
