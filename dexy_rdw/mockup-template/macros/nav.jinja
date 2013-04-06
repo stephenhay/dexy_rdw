@@ -1,20 +1,25 @@
 {% macro menu() -%}
-{% set root = 'home' -%}
 <ul>
-    {%- if navigation.current_index == '' %}
-    <li class="active">{{ root.capitalize() }}</li>
-    {% else -%}
-    <li><a href="/">{{ root.capitalize() }}</a></li>
-    {% endif -%}
+{% for node in root.children -%}
+    {% if node.index_page -%}
+        {% if node.location == current_dir -%}
+            <li class="active">{{ node.index_page.title() }}</li>
+        {% else -%}
+            <li><a href="{{ node.location }}">{{ node.index_page.title() }}</a></li>
+        {% endif -%}
 
-    {% for dirname in sorted(navigation.directories[1]) -%}
-    {% set subdirs = navigation.directories[1][dirname] -%}
-
-    {% if navigation.current_index == dirname -%}
-    <li class="active">{{ dirname.capitalize() }}</li>
-    {% else -%}
-    <li><a href="/{{ dirname }}">{{ dirname.capitalize() }}</a></li>
+        {% if node.has_children_with_index_pages() -%}
+            {% for child in node.children -%}
+                {% if child.index_page -%}
+                    {% if child.location == current_dir -%}
+                    <li class="active">{{ child.index_page.title() }}</li>
+                    {% else -%}
+                    <li><a href="{{ child.location }}">{{ child.index_page.title() }}</a></li>
+                    {% endif -%}
+                {% endif -%}
+            {% endfor -%}
+        {% endif -%}
     {% endif -%}
-    {% endfor -%}
+{% endfor -%}
 </ul>
 {% endmacro %}
